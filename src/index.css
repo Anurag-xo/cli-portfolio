@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,109 +10,61 @@
 
 body {
   margin: 0;
-  font-family: 'Fira Code', 'Courier New', monospace;
+  font-family: "Fira Code", "Courier New", monospace;
   background: #000;
-  color: #00ff41;
+  color: #00ff41; /* Bright green */
   overflow-x: hidden;
+  /* Removed: no glow, no animation */
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar (static, no pulse) */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.3);
+  background: #0a0a0a;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 255, 65, 0.3);
+  background: #00ff41;
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 255, 65, 0.5);
+  background: #00cc33;
 }
 
-/* Terminal glow effects */
-.glow {
-  text-shadow: 
-    0 0 5px currentColor,
-    0 0 10px currentColor,
-    0 0 15px currentColor,
-    0 0 20px currentColor;
+/* Optional: Slightly softer green text */
+.text-green-400 {
+  color: #00ff41;
+}
+.text-green-300 {
+  color: #00e63a;
+}
+.text-green-400\/70 {
+  color: rgba(0, 255, 65, 0.7);
 }
 
-.text-glow {
-  text-shadow: 0 0 10px currentColor;
-}
-
-/* CRT Monitor effect */
-.crt-effect {
-  position: relative;
-}
-
-.crt-effect::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    transparent 50%, 
-    rgba(0, 255, 65, 0.02) 50%
-  );
-  background-size: 100% 4px;
-  pointer-events: none;
-  animation: scanline 0.1s linear infinite;
-}
-
-@keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
-}
-
-@keyframes glow-pulse {
-  0%, 100% { 
-    text-shadow: 
-      0 0 5px currentColor,
-      0 0 10px currentColor,
-      0 0 15px currentColor;
-  }
-  50% { 
-    text-shadow: 
-      0 0 10px currentColor,
-      0 0 20px currentColor,
-      0 0 30px currentColor,
-      0 0 40px currentColor;
-  }
-}
-
-.glow-pulse {
-  animation: glow-pulse 2s ease-in-out infinite;
-}
-
-/* Matrix effect */
-@keyframes matrix-rain {
-  0% { transform: translateY(-100vh); opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
-
+/* Remove ALL animations: no glow, no scanlines, no pulse */
+.glow,
+.glow-pulse,
+.crt-effect,
 .matrix-char {
-  animation: matrix-rain 3s linear infinite;
+  text-shadow: none !important;
+  animation: none !important;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .terminal-container {
-    padding: 0.5rem;
-    font-size: 14px;
-  }
+/* Clean borders and UI */
+.border-green-400\/30 {
+  border-color: rgba(0, 255, 65, 0.3);
 }
 
-@media (max-width: 480px) {
-  .terminal-container {
-    font-size: 12px;
-  }
+.bg-green-400\/10 {
+  background-color: rgba(0, 255, 65, 0.1);
+}
+
+.hover\\:text-green-400:hover {
+  color: #00ff41;
+}
+
+.transition-colors {
+  transition: color 0.2s ease;
 }
