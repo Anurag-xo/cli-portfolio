@@ -217,7 +217,6 @@ jobs:
   return (
     <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
       <div className="bg-gray-900 border border-green-400/30 rounded-lg w-full max-w-6xl h-5/6 flex flex-col">
-        {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-green-400/30">
           <div className="flex items-center space-x-2">
             <Folder className="w-5 h-5 text-green-400" />
@@ -230,8 +229,6 @@ jobs:
             <X className="w-5 h-5" />
           </button>
         </div>
-
-        {/* File Tabs */}
         <div className="flex border-b border-green-400/30 overflow-x-auto">
           {tabs.map((tab) => (
             <button
@@ -248,15 +245,11 @@ jobs:
             </button>
           ))}
         </div>
-
-        {/* File Content */}
         <div className="flex-1 overflow-auto p-4">
           <pre className="text-sm text-green-400 font-mono whitespace-pre-wrap leading-relaxed">
             {files[activeTab as keyof typeof files]}
           </pre>
         </div>
-
-        {/* Footer */}
         <div className="p-4 border-t border-green-400/30 text-xs text-green-400/70 font-mono">
           <div className="flex justify-between">
             <span>
