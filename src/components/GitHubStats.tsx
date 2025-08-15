@@ -1,10 +1,6 @@
 import React from 'react';
 
-interface GitHubStatsProps {
-  username: string;
-}
-
-export const GitHubStats: React.FC<GitHubStatsProps> = ({ username }) => {
+export const GitHubStats = () => {
   return (
     <div className="bg-gray-900 border border-green-400/30 rounded p-4 font-mono text-sm">
       <div className="text-green-300 mb-2">📊 GitHub Statistics</div>
