@@ -1,3 +1,4 @@
+// src/components/ProjectViewer.tsx
 import React, { useState } from "react";
 import { X, File, Folder } from "lucide-react";
 
