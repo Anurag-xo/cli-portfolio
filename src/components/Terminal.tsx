@@ -1,9 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useStore } from '../store';
+import { processCommand } from '../utils/commandProcessor.tsx';
 
 export const Terminal = () => {
-  const [commandHistory, setCommandHistory] = useState<{ input: string; output: string }[]>([]);
+  const [commandHistory, setCommandHistory] = useState<{ input: string; output: React.ReactNode }[]>([]);
   const [currentInput, setCurrentInput] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+  const { setTheme } = useStore();
 
   const bootText = `
   Booting up terminal...
@@ -17,36 +20,9 @@ export const Terminal = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      processCommand(currentInput);
+      processCommand(currentInput, setCommandHistory, commandHistory, setTheme);
       setCurrentInput('');
     }
-  };
-
-  const processCommand = (input: string) => {
-    let output = '';
-    const [command, ...args] = input.trim().split(' ');
-
-    switch (command) {
-      case 'help':
-        output = 'Available commands: help, about, projects, contact, clear';
-        break;
-      case 'about':
-        output = 'This is a terminal-style portfolio built with React and Tailwind CSS.';
-        break;
-      case 'projects':
-        output = 'Project Viewer is not implemented yet.';
-        break;
-      case 'contact':
-        output = 'You can find me on GitHub: https://github.com/Anurag-xo';
-        break;
-      case 'clear':
-        setCommandHistory([]);
-        return;
-      default:
-        output = `Command not found: ${command}`;
-    }
-
-    setCommandHistory([...commandHistory, { input, output }]);
   };
 
   useEffect(() => {
@@ -56,9 +32,9 @@ export const Terminal = () => {
   }, []);
 
   return (
-    <div className="relative z-10 font-mono text-sm leading-snug">
+    <div className="font-mono text-sm leading-snug h-full" onClick={() => inputRef.current?.focus()}>
       {/* Boot Text */}
-      <div className="text-green-400">
+      <div className="text-primary">
         {bootText.split('\n').map((line, i) => (
           <div key={i}>{line}</div>
         ))}
@@ -68,36 +44,31 @@ export const Terminal = () => {
       {commandHistory.map((command, index) => (
         <React.Fragment key={index}>
           <div className="flex items-baseline">
-            <span className="text-green-300">user@terminal:~$ </span>
-            <span className="text-white">{command.input}</span>
+            <span className="text-accent">user@terminal:~$ </span>
+            <span className="text-text">{command.input}</span>
           </div>
           {command.output && (
-            <pre className="text-green-400 whitespace-pre-wrap ml-2">
+            <div className="text-primary whitespace-pre-wrap ml-2">
               {command.output}
-            </pre>
+            </div>
           )}
         </React.Fragment>
       ))}
 
       {/* Current Input */}
       <div className="flex items-baseline">
-        <span className="text-green-300">user@terminal:~$ </span>
+        <span className="text-accent">user@terminal:~$ </span>
         <input
           ref={inputRef}
           type="text"
           value={currentInput}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
-          className="flex-1 bg-transparent border-none outline-none text-white ml-1 min-w-1"
+          className="flex-1 bg-transparent border-none outline-none text-text ml-1 min-w-1"
           spellCheck={false}
           autoFocus
         />
-        <span className="text-green-400">█</span>
-      </div>
-
-      {/* Status Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-black border-t border-green-400/30 text-xs text-green-400/70 px-4 py-1">
-        <span>Status: Online | {commandHistory.length} cmds</span>
+        <span className="text-primary">█</span>
       </div>
     </div>
   );
