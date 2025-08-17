@@ -1,0 +1,55 @@
+
+export const themes = {
+  light: {
+    '--background': '#f9f9f9',
+    '--text': '#333',
+    '--primary': '#007acc',
+    '--secondary': '#6c757d',
+    '--accent': '#f0ad4e',
+    '--border': '#ccc',
+    '--header': '#f1f1f1',
+    '--shadow': 'rgba(0, 0, 0, 0.1)',
+  },
+  dark: {
+    '--background': '#1e1e1e',
+    '--text': '#d4d4d4',
+    '--primary': '#00ff41',
+    '--secondary': '#8e8e8e',
+    '--accent': '#f0ad4e',
+    '--border': '#333',
+    '--header': '#2d2d2d',
+    '--shadow': 'rgba(0, 0, 0, 0.5)',
+  },
+  matrix: {
+    '--background': '#000',
+    '--text': '#00ff41',
+    '--primary': '#00ff41',
+    '--secondary': '#00aa2b',
+    '--accent': '#00ff41',
+    '--border': '#00ff41',
+    '--header': '#0a0a0a',
+    '--shadow': 'rgba(0, 255, 65, 0.5)',
+  },
+  solarized: {
+    '--background': '#002b36',
+    '--text': '#839496',
+    '--primary': '#268bd2',
+    '--secondary': '#586e75',
+    '--accent': '#b58900',
+    '--border': '#073642',
+    '--header': '#00212b',
+    '--shadow': 'rgba(0, 0, 0, 0.5)',
+  },
+  dracula: {
+    '--background': '#282a36',
+    '--text': '#f8f8f2',
+    '--primary': '#50fa7b',
+    '--secondary': '#6272a4',
+    '--accent': '#ffb86c',
+    '--border': '#44475a',
+    '--header': '#1f212b',
+    '--shadow': 'rgba(0, 0, 0, 0.5)',
+  },
+};
+
+export type Theme = keyof typeof themes;
