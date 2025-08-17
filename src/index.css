@@ -1,70 +1,75 @@
+/* src/index.css */
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
+:root {
+  --background: #1e1e1e;
+  --text: #d4d4d4;
+  --primary: #00ff41;
+  --secondary: #8e8e8e;
+  --accent: #f0ad4e;
+  --border: #333;
+  --header: #2d2d2d;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.bg-background {
+  background-color: var(--background);
+}
+
+.text-text {
+  color: var(--text);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-header {
+    background-color: var(--header);
 }
 
 body {
   margin: 0;
   font-family: "Fira Code", "Courier New", monospace;
   background: #000;
-  color: #00ff41; /* Bright green */
+  color: #00ff41;
   overflow-x: hidden;
-  /* Removed: no glow, no animation */
 }
 
-/* Custom scrollbar (static, no pulse) */
+/* Remove all animations */
+.glow,
+.crt-effect,
+.animate-pulse {
+  text-shadow: none !important;
+  animation: none !important;
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #0a0a0a;
 }
 ::-webkit-scrollbar-thumb {
   background: #00ff41;
-  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #00cc33;
-}
-
-/* Optional: Slightly softer green text */
-.text-green-400 {
-  color: #00ff41;
-}
-.text-green-300 {
-  color: #00e63a;
-}
-.text-green-400\/70 {
-  color: rgba(0, 255, 65, 0.7);
-}
-
-/* Remove ALL animations: no glow, no scanlines, no pulse */
-.glow,
-.glow-pulse,
-.crt-effect,
-.matrix-char {
-  text-shadow: none !important;
-  animation: none !important;
-}
-
-/* Clean borders and UI */
-.border-green-400\/30 {
-  border-color: rgba(0, 255, 65, 0.3);
-}
-
-.bg-green-400\/10 {
-  background-color: rgba(0, 255, 65, 0.1);
-}
-
-.hover\\:text-green-400:hover {
-  color: #00ff41;
-}
-
-.transition-colors {
-  transition: color 0.2s ease;
 }
