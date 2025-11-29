@@ -36,7 +36,7 @@ export const Terminal = () => {
       {/* Boot Text */}
       <div className="text-primary">
         {bootText.split('\n').map((line, i) => (
-          <div key={i}>{line}</div>
+          <div key={`boot-${i}`}>{line}</div>
         ))}
       </div>
 

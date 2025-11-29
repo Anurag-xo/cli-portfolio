@@ -1,4 +1,5 @@
 import React from 'react';
+import { gitHubStats } from '../data/gitHubStats';
 
 export const GitHubStats = () => {
   return (
@@ -29,14 +30,14 @@ export const GitHubStats = () => {
       {/* Stats */}
       <div className="grid grid-cols-2 gap-4 text-xs">
         <div>
-          <div className="text-green-400">Public Repos: 47</div>
-          <div className="text-green-400">Stars: 1,247</div>
-          <div className="text-green-400">Followers: 523</div>
+          <div className="text-green-400">Public Repos: {gitHubStats.publicRepos}</div>
+          <div className="text-green-400">Stars: {gitHubStats.stars}</div>
+          <div className="text-green-400">Followers: {gitHubStats.followers}</div>
         </div>
         <div>
-          <div className="text-green-400">Contributions: 1,847</div>
-          <div className="text-green-400">Streak: 127 days</div>
-          <div className="text-green-400">PRs: 234</div>
+          <div className="text-green-400">Contributions: {gitHubStats.contributions}</div>
+          <div className="text-green-400">Streak: {gitHubStats.streak} days</div>
+          <div className="text-green-400">PRs: {gitHubStats.prs}</div>
         </div>
       </div>
     </div>
