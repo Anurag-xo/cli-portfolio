@@ -10,6 +10,7 @@ import {
   neofetch,
   clear,
   github,
+  system,
 } from '../commands';
 
 export const processCommand = (
@@ -29,6 +30,7 @@ export const processCommand = (
       output = about();
       break;
     case 'projects':
+    case 'ls':
       output = projects();
       break;
     case 'contact':
@@ -45,6 +47,9 @@ export const processCommand = (
       break;
     case 'github':
       output = github();
+      break;
+    case 'system':
+      output = system();
       break;
     case 'clear':
       clear(setCommandHistory);
