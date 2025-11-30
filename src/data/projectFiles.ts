@@ -119,7 +119,7 @@ spec:
     targetPort: 8000
   type: LoadBalancer`,
 
-  Dockerfile: `FROM python:3.11-slim
+  Dockerfile: (project: string | null) => `FROM python:3.11-slim
 WORKDIR /app
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
