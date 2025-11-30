@@ -1,3 +1,42 @@
-export const projects = (): React.ReactNode => (
-  'To see my projects, please visit my GitHub profile.'
-);
+import React, { useState, useEffect } from 'react';
+import { ProjectViewer } from '../../components/ProjectViewer';
+
+interface Project {
+  name: string;
+  description: string;
+  html_url: string;
+  stargazers_count: number;
+  forks_count: number;
+  language: string;
+}
+
+const Projects: React.FC = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('https://api.github.com/users/Anurag-xo/repos');
+        const data = await response.json();
+        setProjects(data);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  if (loading) {
+    return <div>Loading projects...</div>;
+  }
+
+  return <ProjectViewer projects={projects} />;
+};
+
+export const projects = (): React.ReactNode => {
+  return <Projects />;
+};
