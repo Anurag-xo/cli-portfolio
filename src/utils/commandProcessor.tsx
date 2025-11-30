@@ -9,6 +9,7 @@ import {
   motd,
   neofetch,
   clear,
+  github,
 } from '../commands';
 
 export const processCommand = (
@@ -41,6 +42,9 @@ export const processCommand = (
       break;
     case 'neofetch':
       output = neofetch();
+      break;
+    case 'github':
+      output = github();
       break;
     case 'clear':
       clear(setCommandHistory);

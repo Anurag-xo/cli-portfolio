@@ -1,43 +1,36 @@
 import React from 'react';
-import { gitHubStats } from '../data/gitHubStats';
 
-export const GitHubStats = () => {
+interface GitHubStatsData {
+  followers: number;
+  following: number;
+  public_repos: number;
+  public_gists: number;
+}
+
+interface GitHubStatsProps {
+  stats: GitHubStatsData;
+}
+
+export const GitHubStats: React.FC<GitHubStatsProps> = ({ stats }) => {
   return (
-    <div className="bg-gray-900 border border-green-400/30 rounded p-4 font-mono text-sm">
-      <div className="text-green-300 mb-2">📊 GitHub Statistics</div>
-      
-      {/* Contribution Graph */}
-      <div className="mb-4">
-        <div className="text-xs text-green-400/70 mb-2">Contribution Graph (2024)</div>
-        <div className="grid grid-cols-53 gap-1">
-          {Array.from({ length: 371 }, (_, i) => (
-            <div
-              key={i}
-              className={`w-2 h-2 rounded-sm ${
-                Math.random() > 0.7 
-                  ? 'bg-green-400' 
-                  : Math.random() > 0.5 
-                  ? 'bg-green-400/60' 
-                  : Math.random() > 0.3 
-                  ? 'bg-green-400/30' 
-                  : 'bg-gray-800'
-              }`}
-            />
-          ))}
+    <div>
+      <h2 className="text-xl font-bold">GitHub Stats</h2>
+      <div className="grid grid-cols-2 gap-4 mt-4">
+        <div className="border p-4 rounded-lg">
+          <h3 className="font-bold">Followers</h3>
+          <p>{stats.followers}</p>
         </div>
-      </div>
-
-      {/* Stats */}
-      <div className="grid grid-cols-2 gap-4 text-xs">
-        <div>
-          <div className="text-green-400">Public Repos: {gitHubStats.publicRepos}</div>
-          <div className="text-green-400">Stars: {gitHubStats.stars}</div>
-          <div className="text-green-400">Followers: {gitHubStats.followers}</div>
+        <div className="border p-4 rounded-lg">
+          <h3 className="font-bold">Following</h3>
+          <p>{stats.following}</p>
         </div>
-        <div>
-          <div className="text-green-400">Contributions: {gitHubStats.contributions}</div>
-          <div className="text-green-400">Streak: {gitHubStats.streak} days</div>
-          <div className="text-green-400">PRs: {gitHubStats.prs}</div>
+        <div className="border p-4 rounded-lg">
+          <h3 className="font-bold">Public Repos</h3>
+          <p>{stats.public_repos}</p>
+        </div>
+        <div className="border p-4 rounded-lg">
+          <h3 className="font-bold">Public Gists</h3>
+          <p>{stats.public_gists}</p>
         </div>
       </div>
     </div>

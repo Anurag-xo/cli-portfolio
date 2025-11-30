@@ -6,3 +6,4 @@ export * from './theme';
 export * from './motd';
 export * from './neofetch';
 export * from './clear';
+export * from './github';

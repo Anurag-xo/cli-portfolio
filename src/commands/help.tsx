@@ -8,6 +8,7 @@ export const help = (): React.ReactNode => (
       <li>about: Show information about me.</li>
       <li>projects: List my projects.</li>
       <li>contact: Show my contact information.</li>
+      <li>github: Show my github stats.</li>
       <li>theme [theme]: Change the theme. Available themes: {Object.keys(themes).join(', ')}.</li>
       <li>motd: Show the message of the day.</li>
       <li>neofetch: Show system information.</li>
