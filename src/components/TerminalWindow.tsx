@@ -28,7 +28,7 @@ export const TerminalWindow: React.FC = () => {
             <button className="w-3 h-3 bg-yellow-500 rounded-full" />
             <button className="w-3 h-3 bg-green-500 rounded-full" />
           </div>
-          <div className="text-sm text-secondary">Terminal</div>
+          <div className="text-sm text-secondary">Anurag's Portfolio</div>
           <div className="flex items-center space-x-2">
             <Minimize size={16} className="text-secondary" />
             <Maximize size={16} className="text-secondary" />
