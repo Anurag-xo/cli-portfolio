@@ -34,7 +34,12 @@ const Projects: React.FC = () => {
     return <div>Loading projects...</div>;
   }
 
-  return <ProjectViewer projects={projects} />;
+  return (
+    <div>
+      <p className="mb-4">Here are some of my projects from GitHub. You can click on them to view the source code.</p>
+      <ProjectViewer projects={projects} />
+    </div>
+  );
 };
 
 export const projects = (): React.ReactNode => {

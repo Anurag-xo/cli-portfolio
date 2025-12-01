@@ -12,6 +12,7 @@ import {
   github,
   system,
   welcome,
+  socials,
 } from '../commands';
 import React from 'react';
 
@@ -36,6 +37,7 @@ const commands: Command = {
   github: () => github(),
   system: () => system(),
   welcome: () => welcome(),
+  socials: () => socials(),
   clear: (args, setCommandHistory) => {
     clear(setCommandHistory);
     return '';
