@@ -1,3 +1,5 @@
 export const motd = (): React.ReactNode => (
-  'Welcome to my interactive portfolio! I hope you enjoy your stay.'
+  `
+  "The only way to do great work is to love what you do." - Steve Jobs
+  `
 );

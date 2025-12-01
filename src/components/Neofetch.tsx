@@ -37,9 +37,18 @@ export const Neofetch: React.FC = () => {
           `}
         </pre>
       </div>
-      <div className="w-2/3">
+      <div className="w-2/3 space-y-2">
         <h2 className="text-xl font-bold">Anurag-xo</h2>
         <p>Full Stack Developer</p>
+        <p>I'm a passionate developer who loves to build things for the web.</p>
+        
+        <div>
+          <span className="font-bold">Location:</span> India
+        </div>
+        <div>
+          <span className="font-bold">Website:</span> <a href="https://anurag-xo.github.io" target="_blank" rel="noopener noreferrer">anurag-xo.github.io</a>
+        </div>
+
         <div className="mt-4">
           <h3 className="font-bold">Skills</h3>
           {skills.map((skill) => (

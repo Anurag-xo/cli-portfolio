@@ -13,6 +13,8 @@ import {
   system,
   welcome,
   socials,
+  history,
+  banner,
 } from '../commands';
 import React from 'react';
 
@@ -38,6 +40,8 @@ const commands: Command = {
   system: () => system(),
   welcome: () => welcome(),
   socials: () => socials(),
+  history: (args, setCommandHistory, commandHistory) => history(commandHistory),
+  banner: () => banner(),
   clear: (args, setCommandHistory) => {
     clear(setCommandHistory);
     return '';

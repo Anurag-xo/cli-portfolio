@@ -10,3 +10,5 @@ export * from './github';
 export * from './system';
 export * from './welcome';
 export * from './socials';
+export * from './history';
+export * from './banner';
