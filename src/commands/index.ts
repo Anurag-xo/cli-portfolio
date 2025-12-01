@@ -8,3 +8,4 @@ export * from './neofetch';
 export * from './clear';
 export * from './github';
 export * from './system';
+export * from './welcome';

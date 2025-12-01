@@ -1,5 +1,6 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "terminal-portfolio",
+  "description": "A terminal-themed portfolio website built with React, TypeScript, and Tailwind CSS.",
   "private": true,
   "version": "0.0.1",
   "type": "module",

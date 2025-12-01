@@ -11,7 +11,36 @@ import {
   clear,
   github,
   system,
+  welcome,
 } from '../commands';
+import React from 'react';
+
+interface Command {
+  [key: string]: (
+    args: string[],
+    setCommandHistory: React.Dispatch<React.SetStateAction<{ input: string; output: React.ReactNode }[]>>,
+    commandHistory: { input: string; output: React.ReactNode }[],
+    setTheme: (theme: Theme) => void
+  ) => React.ReactNode;
+}
+
+const commands: Command = {
+  help: () => help(),
+  about: () => about(),
+  projects: () => projects(),
+  ls: () => projects(),
+  contact: () => contact(),
+  theme: (args, setCommandHistory, commandHistory, setTheme) => theme(args, setTheme),
+  motd: () => motd(),
+  neofetch: () => neofetch(),
+  github: () => github(),
+  system: () => system(),
+  welcome: () => welcome(),
+  clear: (args, setCommandHistory) => {
+    clear(setCommandHistory);
+    return '';
+  },
+};
 
 export const processCommand = (
   input: string,
@@ -19,44 +48,15 @@ export const processCommand = (
   commandHistory: { input: string; output: React.ReactNode }[],
   setTheme: (theme: Theme) => void
 ) => {
-  let output: React.ReactNode = '';
   const [command, ...args] = input.trim().split(' ');
 
-  switch (command) {
-    case 'help':
-      output = help();
-      break;
-    case 'about':
-      output = about();
-      break;
-    case 'projects':
-    case 'ls':
-      output = projects();
-      break;
-    case 'contact':
-      output = contact();
-      break;
-    case 'theme':
-      output = theme(args, setTheme);
-      break;
-    case 'motd':
-      output = motd();
-      break;
-    case 'neofetch':
-      output = neofetch();
-      break;
-    case 'github':
-      output = github();
-      break;
-    case 'system':
-      output = system();
-      break;
-    case 'clear':
-      clear(setCommandHistory);
-      return;
-    default:
-      output = `Command not found: ${command}. Type 'help' for a list of commands.`;
+  if (command in commands) {
+    const output = commands[command](args, setCommandHistory, commandHistory, setTheme);
+    if (command !== 'clear') {
+      setCommandHistory([...commandHistory, { input, output }]);
+    }
+  } else {
+    const output = `Command not found: ${command}. Type 'help' for a list of commands.`;
+    setCommandHistory([...commandHistory, { input, output }]);
   }
-
-  setCommandHistory([...commandHistory, { input, output }]);
 };
