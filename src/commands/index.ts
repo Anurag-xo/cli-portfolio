@@ -13,6 +13,10 @@ import { welcome } from './welcome';
 import { socials } from './socials';
 import { history } from './history';
 import { banner } from './banner';
+import { sudo } from './sudo';
+import { echo } from './echo';
+import { date } from './date';
+import { whoami } from './whoami';
 
 export const commands: Commands = {
   help: {
@@ -92,5 +96,25 @@ export const commands: Commands = {
       clear(setCommandHistory);
       return '';
     },
+  },
+  sudo: {
+    name: 'sudo',
+    description: 'Run a command with root privileges.',
+    execute: (args, setCommandHistory, commandHistory, setTheme) => sudo(args),
+  },
+  echo: {
+    name: 'echo',
+    description: 'Print a message.',
+    execute: (args, setCommandHistory, commandHistory, setTheme) => echo(args),
+  },
+  date: {
+    name: 'date',
+    description: 'Show the current date and time.',
+    execute: (args, setCommandHistory, commandHistory, setTheme) => date(),
+  },
+  whoami: {
+    name: 'whoami',
+    description: 'Show the current user.',
+    execute: (args, setCommandHistory, commandHistory, setTheme) => whoami(),
   },
 };
