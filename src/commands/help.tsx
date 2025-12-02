@@ -11,6 +11,10 @@ export const help = (): React.ReactNode => (
         <li><span className="font-bold w-20 inline-block">clear</span>: Clear the terminal.</li>
         <li><span className="font-bold w-20 inline-block">motd</span>: Show the message of the day.</li>
         <li><span className="font-bold w-20 inline-block">welcome</span>: Show the welcome message.</li>
+        <li><span className="font-bold w-20 inline-block">sudo</span>: Run a command with root privileges.</li>
+        <li><span className="font-bold w-20 inline-block">echo</span>: Print a message.</li>
+        <li><span className="font-bold w-20 inline-block">date</span>: Show the current date and time.</li>
+        <li><span className="font-bold w-20 inline-block">whoami</span>: Show the current user.</li>
       </ul>
     </div>
 
