@@ -2,10 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useStore } from '../store';
 import { processCommand } from '../utils/commandProcessor.tsx';
 import { useTypingEffect } from '../hooks/useTypingEffect';
+import { commands } from '../commands';
 
 export const Terminal = () => {
   const [commandHistory, setCommandHistory] = useState<{ input: string; output: React.ReactNode }[]>([]);
   const [currentInput, setCurrentInput] = useState('');
+  const [historyIndex, setHistoryIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const { setTheme } = useStore();
 
@@ -25,6 +27,28 @@ export const Terminal = () => {
     if (e.key === 'Enter') {
       processCommand(currentInput, setCommandHistory, commandHistory, setTheme);
       setCurrentInput('');
+      setHistoryIndex(-1);
+    } else if (e.key === 'ArrowUp') {
+      if (historyIndex < commandHistory.length - 1) {
+        const newHistoryIndex = historyIndex + 1;
+        setHistoryIndex(newHistoryIndex);
+        setCurrentInput(commandHistory[commandHistory.length - 1 - newHistoryIndex].input);
+      }
+    } else if (e.key === 'ArrowDown') {
+      if (historyIndex > 0) {
+        const newHistoryIndex = historyIndex - 1;
+        setHistoryIndex(newHistoryIndex);
+        setCurrentInput(commandHistory[commandHistory.length - 1 - newHistoryIndex].input);
+      } else {
+        setHistoryIndex(-1);
+        setCurrentInput('');
+      }
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      const matchingCommands = Object.keys(commands).filter((command) => command.startsWith(currentInput));
+      if (matchingCommands.length === 1) {
+        setCurrentInput(matchingCommands[0]);
+      }
     }
   };
 
