@@ -40,6 +40,11 @@ export const help = (): React.ReactNode => (
           <br />
           <span className="ml-2">Available themes: {Object.keys(themes).join(', ')}.</span>
         </li>
+        <li>
+          <span className="font-bold w-20 inline-block">weather</span>: Show the weather for a given location.
+          <br />
+          <span className="ml-2">Usage: weather [location]</span>
+        </li>
       </ul>
     </div>
   </div>

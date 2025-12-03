@@ -17,6 +17,7 @@ import { sudo } from './sudo';
 import { echo } from './echo';
 import { date } from './date';
 import { whoami } from './whoami';
+import { weather } from './weather';
 
 export const commands: Commands = {
   help: {
@@ -116,5 +117,10 @@ export const commands: Commands = {
     name: 'whoami',
     description: 'Show the current user.',
     execute: (args, setCommandHistory, commandHistory, setTheme) => whoami(),
+  },
+  weather: {
+    name: 'weather',
+    description: 'Show the weather for a given location.',
+    execute: (args, setCommandHistory, commandHistory, setTheme) => weather(args),
   },
 };

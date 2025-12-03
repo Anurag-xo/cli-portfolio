@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { system } from '../data/system';
 
 const StatBar = ({ name, value, max }: { name: string; value: number; max: number }) => (
   <div className="flex items-center">
@@ -20,9 +21,9 @@ export const SystemMonitor: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCpu(Math.floor(Math.random() * 100));
-      setMem(Math.floor(Math.random() * 100));
-      setDisk(Math.floor(Math.random() * 100));
+      setCpu(Math.floor(system.cpu.base + Math.random() * system.cpu.variation));
+      setMem(Math.floor(system.mem.base + Math.random() * system.mem.variation));
+      setDisk(Math.floor(system.disk.base + Math.random() * system.disk.variation));
     }, 1000);
 
     return () => clearInterval(interval);
