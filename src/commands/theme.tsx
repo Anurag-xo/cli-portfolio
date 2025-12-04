@@ -1,4 +1,4 @@
-import { themes, Theme } from '../../styles/themes';
+import { themes, Theme } from '../styles/themes';
 
 export const theme = (args: string[], setTheme: (theme: Theme) => void): React.ReactNode => {
   if (args.length === 0) {
