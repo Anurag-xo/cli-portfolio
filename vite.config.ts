@@ -19,7 +19,4 @@ export default defineConfig({
       protocolImports: true,
     }),
   ],
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
-});
+  });
