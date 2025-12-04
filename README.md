@@ -115,6 +115,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📞 Contact
 
-Your Name - [Your Email](mailto:anuragxo.dev@gmail.com)
+Your Name - [anuragxo.dev@gmail.com](mailto:anuragxo.dev@gmail.com)
 Project Link: [https://github.com/Anurag-xo/terminal_port](https://github.com/Anurag-xo/terminal_port)
-
