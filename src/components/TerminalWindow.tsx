@@ -27,8 +27,9 @@ export const TerminalWindow: React.FC = () => {
   }
 
   return (
-    <Draggable handle=".handle">
+    <Draggable handle=".handle" nodeRef={nodeRef}>
       <Resizable
+        ref={nodeRef}
         defaultSize={{
           width: 800,
           height: 600,

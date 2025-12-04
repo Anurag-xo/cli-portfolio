@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GitHubStats } from '../../components/GitHubStats';
+import { GitHubStats } from '../components/GitHubStats';
 
 interface GitHubStatsData {
   followers: number;
