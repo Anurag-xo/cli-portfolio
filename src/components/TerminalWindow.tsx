@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Draggable from 'react-draggable';
 import { Resizable } from 're-resizable';
 import { Terminal } from './Terminal';
@@ -9,6 +9,7 @@ export const TerminalWindow: React.FC = () => {
   const [isMaximized, setIsMaximized] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isClosed, setIsClosed] = useState(false);
+  const nodeRef = useRef(null);
 
   const handleClose = () => {
     setIsClosed(true);
