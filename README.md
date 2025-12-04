@@ -6,12 +6,12 @@ Welcome to my interactive terminal-themed personal portfolio! This project trans
 
 ## ✨ Features
 
-*   **Interactive Terminal:** A fully functional command-line interface.
-*   **Custom Commands:** Explore `about`, `projects`, `socials`, `github`, `weather`, `system`, `neofetch`, `theme`, and more.
-*   **Dynamic Content:** Displays real-time data for GitHub stats, system information, and weather.
-*   **Customizable Themes:** Switch between different terminal themes.
-*   **Responsive Design:** Optimized for various screen sizes.
-*   **Typing Effect:** Engaging text display for command outputs.
+- **Interactive Terminal:** A fully functional command-line interface.
+- **Custom Commands:** Explore `about`, `projects`, `socials`, `github`, `weather`, `system`, `neofetch`, `theme`, and more.
+- **Dynamic Content:** Displays real-time data for GitHub stats, system information, and weather.
+- **Customizable Themes:** Switch between different terminal themes.
+- **Responsive Design:** Optimized for various screen sizes.
+- **Typing Effect:** Engaging text display for command outputs.
 
 ## 🚀 Demo
 
@@ -19,10 +19,10 @@ Welcome to my interactive terminal-themed personal portfolio! This project trans
 
 ## 🛠️ Technologies Used
 
-*   **React:** A JavaScript library for building user interfaces.
-*   **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
-*   **Vite:** A fast build tool that provides an extremely fast development experience.
-*   **Tailwind CSS:** A utility-first CSS framework for rapidly building custom designs.
+- **React:** A JavaScript library for building user interfaces.
+- **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
+- **Vite:** A fast build tool that provides an extremely fast development experience.
+- **Tailwind CSS:** A utility-first CSS framework for rapidly building custom designs.
 
 ## ⚙️ Installation
 
@@ -32,13 +32,13 @@ To get a local copy up and running, follow these simple steps.
 
 Make sure you have Node.js and npm (or yarn) installed.
 
-*   Node.js (LTS recommended)
-*   npm (comes with Node.js) or Yarn
+- Node.js (LTS recommended)
+- npm (comes with Node.js) or Yarn
 
 ### Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/terminal_port.git
+git clone https://github.com/Anurag-xo/terminal_port.git
 cd terminal_port
 ```
 
@@ -78,24 +78,24 @@ Once the application is running, you can interact with it just like a real termi
 
 Here are some of the commands you can use:
 
-*   `about` - Learn more about me.
-*   `projects` - View my portfolio projects.
-*   `socials` - Find my social media links.
-*   `github` - Check out my GitHub profile and stats.
-*   `weather [city]` - Get the current weather for a specified city (e.g., `weather London`).
-*   `system` - Display system information.
-*   `neofetch` - A cool system info display.
-*   `theme [light|dark|... ]` - Change the terminal theme.
-*   `clear` - Clear the terminal screen.
-*   `help` - Show this help message.
-*   `history` - View your command history.
-*   `echo [text]` - Print text to the terminal.
-*   `sudo` - Just for fun, try it!
-*   `whoami` - Displays the current user.
-*   `motd` - Message of the day.
-*   `welcome` - Display the welcome message.
-*   `contact` - How to get in touch.
-*   `date` - Show the current date and time.
+- `about` - Learn more about me.
+- `projects` - View my portfolio projects.
+- `socials` - Find my social media links.
+- `github` - Check out my GitHub profile and stats.
+- `weather [city]` - Get the current weather for a specified city (e.g., `weather London`).
+- `system` - Display system information.
+- `neofetch` - A cool system info display.
+- `theme [light|dark|... ]` - Change the terminal theme.
+- `clear` - Clear the terminal screen.
+- `help` - Show this help message.
+- `history` - View your command history.
+- `echo [text]` - Print text to the terminal.
+- `sudo` - Just for fun, try it!
+- `whoami` - Displays the current user.
+- `motd` - Message of the day.
+- `welcome` - Display the welcome message.
+- `contact` - How to get in touch.
+- `date` - Show the current date and time.
 
 ## 🤝 Contributing
 
@@ -115,5 +115,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📞 Contact
 
-Your Name - [Your Email](mailto:your.email@example.com)
-Project Link: [https://github.com/YOUR_USERNAME/terminal_port](https://github.com/YOUR_USERNAME/terminal_port)
+Your Name - [Your Email](mailto:anuragxo.dev@gmail.com)
+Project Link: [https://github.com/Anurag-xo/terminal_port](https://github.com/Anurag-xo/terminal_port)
+
