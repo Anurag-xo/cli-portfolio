@@ -1,14 +1,16 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Draggable from 'react-draggable';
 import { Resizable } from 're-resizable';
 import { Terminal } from './Terminal';
 import { Minimize, Maximize, X } from 'lucide-react';
 
 export const TerminalWindow: React.FC = () => {
+  const nodeRef = useRef(null);
   return (
-    <Draggable handle=".handle">
+    <Draggable handle=".handle" nodeRef={nodeRef}>
       <Resizable
+        ref={nodeRef}
         defaultSize={{
           width: 800,
           height: 600,
