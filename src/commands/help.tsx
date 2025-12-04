@@ -1,4 +1,4 @@
-import { themes } from '../../styles/themes';
+import { themes } from '../styles/themes';
 
 export const help = (): React.ReactNode => (
   <div className="space-y-2">
