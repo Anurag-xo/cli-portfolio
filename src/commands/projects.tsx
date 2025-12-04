@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ProjectViewer } from '../../components/ProjectViewer';
+import { ProjectViewer } from '../components/ProjectViewer';
 
 interface Project {
   name: string;
