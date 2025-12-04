@@ -23,13 +23,6 @@ const Weather: React.FC<{ args: string[] }> = ({ args }) => {
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_OPENWEATHERMAP_API_KEY;
-
-const Weather: React.FC<{ args: string[] }> = ({ args }) => {
-  const [weather, setWeather] = useState<WeatherData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
     const fetchWeather = async () => {
       if (args.length === 0) {
         setError('Please specify a location. Usage: weather [location]');
