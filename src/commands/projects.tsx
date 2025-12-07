@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ProjectViewer } from '../components/ProjectViewer';
+import { ICommand } from '../types';
 
 interface Project {
   name: string;
@@ -42,6 +43,8 @@ const Projects: React.FC = () => {
   );
 };
 
-export const projects = (): React.ReactNode => {
-  return <Projects />;
+export const projects: ICommand = {
+  name: 'projects',
+  description: 'Displays my projects.',
+  execute: () => <Projects />,
 };

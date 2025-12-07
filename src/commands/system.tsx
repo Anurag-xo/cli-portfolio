@@ -1,6 +1,9 @@
 import React from 'react';
 import { SystemMonitor } from '../components/SystemMonitor';
+import { ICommand } from '../types';
 
-export const system = (): React.ReactNode => {
-  return <SystemMonitor />;
+export const system: ICommand = {
+  name: 'system',
+  description: 'Displays the system monitor.',
+  execute: () => <SystemMonitor />,
 };
