@@ -1,15 +1,18 @@
 
 import React from 'react';
+import { ICommand } from '../types';
 
-export const history = (
-  commandHistory: { input: string; output: React.ReactNode }[]
-): React.ReactNode => (
-  <div>
-    {commandHistory.map((command, index) => (
-      <div key={index}>
-        <span>{index + 1}</span>
-        <span className="ml-2">{command.input}</span>
-      </div>
-    ))}
-  </div>
-);
+export const history: ICommand = {
+  name: 'history',
+  description: 'Displays the command history.',
+  execute: (args, setCommandHistory, commandHistory) => (
+    <div>
+      {commandHistory.map((command, index) => (
+        <div key={index}>
+          <span>{index + 1}</span>
+          <span className="ml-2">{command.input}</span>
+        </div>
+      ))}
+    </div>
+  ),
+};
