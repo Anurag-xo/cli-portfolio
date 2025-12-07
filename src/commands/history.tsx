@@ -1,11 +1,9 @@
-
-import { ICommand } from '../types';
-import React from 'react';
-import { ICommand } from '../types';
+import { ICommand } from "../types";
+import React from "react";
 
 export const history: ICommand = {
-  name: 'history',
-  description: 'Displays the command history.',
+  name: "history",
+  description: "Displays the command history.",
   execute: (args, setCommandHistory, commandHistory) => {
     return (
       <div>
