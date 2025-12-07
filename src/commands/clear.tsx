@@ -1,10 +1,10 @@
-import { ICommand } from '../types';
+import { ICommand } from "../types";
 
 export const clear: ICommand = {
-  name: 'clear',
-  description: 'Clears the terminal history.',
+  name: "clear",
+  description: "Clears the terminal history.",
   execute: (args, setCommandHistory) => {
     setCommandHistory([]);
-    return '';
+    return "";
   },
 };

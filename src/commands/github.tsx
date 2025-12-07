@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GitHubStats } from '../components/GitHubStats';
+import { ICommand } from '../types';
 
 interface GitHubStatsData {
   followers: number;
@@ -39,6 +40,8 @@ const GitHub: React.FC = () => {
   return <GitHubStats stats={stats} />;
 };
 
-export const github = (): React.ReactNode => {
-  return <GitHub />;
+export const github: ICommand = {
+  name: 'github',
+  description: 'Displays my GitHub stats.',
+  execute: () => <GitHub />,
 };

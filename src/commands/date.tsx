@@ -6,4 +6,5 @@ export const date: ICommand = {
   execute: () => {
     return new Date().toString();
   },
+  execute: () => new Date().toString(),
 };
