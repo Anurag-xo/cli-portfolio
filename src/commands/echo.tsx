@@ -1,3 +1,9 @@
-export const echo = (args: string[]): React.ReactNode => {
-  return args.join(' ');
+import { ICommand } from '../types';
+
+export const echo: ICommand = {
+  name: 'echo',
+  description: 'Echoes the input.',
+  execute: (args) => {
+    return args.join(' ');
+  },
 };
