@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ICommand } from '../types';
 
 interface WeatherData {
   main: {
@@ -93,6 +94,8 @@ const Weather: React.FC<{ args: string[] }> = ({ args }) => {
   );
 };
 
-export const weather = (args: string[]): React.ReactNode => {
-  return <Weather args={args} />;
+export const weather: ICommand = {
+  name: 'weather',
+  description: 'Displays the weather for a given location.',
+  execute: (args) => <Weather args={args} />,
 };
