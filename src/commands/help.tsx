@@ -1,53 +1,51 @@
+import React from 'react';
 import { ICommand } from '../types';
+import { commands } from './index';
 import { themes } from '../styles/themes';
 
 const Help: React.FC = () => {
+  const generalCommands = ['help', 'clear', 'motd', 'welcome', 'sudo', 'echo', 'date', 'whoami', 'history', 'banner'];
+  const aboutMeCommands = ['about', 'projects', 'contact', 'github', 'socials'];
+  const systemCommands = ['neofetch', 'system', 'theme', 'weather'];
+
+  const renderCommands = (commandNames: string[]) => (
+    <ul className="list-disc list-inside ml-4">
+      {commandNames.map((name) => {
+        const command = commands[name];
+        if (!command || command.name === 'ls') return null; // Skip aliases or undefined commands
+        let usage = '';
+        if (command.name === 'theme') {
+          usage = `<br /><span className="ml-2">Usage: theme [theme]</span><br /><span className="ml-2">Available themes: ${Object.keys(themes).join(', ')}.</span>`;
+        } else if (command.name === 'weather') {
+          usage = '<br /><span className="ml-2">Usage: weather [location]</span>';
+        }
+        return (
+          <li key={name}>
+            <span className="font-bold w-20 inline-block">{command.name}</span>: {command.description}
+            {usage && <span dangerouslySetInnerHTML={{ __html: usage }} />}
+          </li>
+        );
+      })}
+    </ul>
+  );
+
   return (
     <div className="space-y-2">
       <p className="font-bold text-lg">Available commands:</p>
       
       <div>
         <p className="font-bold text-accent">General</p>
-        <ul className="list-disc list-inside ml-4">
-          <li><span className="font-bold w-20 inline-block">help</span>: Show this help message.</li>
-          <li><span className="font-bold w-20 inline-block">clear</span>: Clear the terminal.</li>
-          <li><span className="font-bold w-20 inline-block">motd</span>: Show the message of the day.</li>
-          <li><span className="font-bold w-20 inline-block">welcome</span>: Show the welcome message.</li>
-          <li><span className="font-bold w-20 inline-block">sudo</span>: Run a command with root privileges.</li>
-          <li><span className="font-bold w-20 inline-block">echo</span>: Print a message.</li>
-          <li><span className="font-bold w-20 inline-block">date</span>: Show the current date and time.</li>
-          <li><span className="font-bold w-20 inline-block">whoami</span>: Show the current user.</li>
-        </ul>
+        {renderCommands(generalCommands)}
       </div>
 
       <div>
         <p className="font-bold text-accent">About Me</p>
-        <ul className="list-disc list-inside ml-4">
-          <li><span className="font-bold w-20 inline-block">about</span>: Show information about me.</li>
-          <li><span className="font-bold w-20 inline-block">projects</span>: List my projects.</li>
-          <li><span className="font-bold w-20 inline-block">contact</span>: Show my contact information.</li>
-          <li><span className="font-bold w-20 inline-block">github</span>: Show my github stats.</li>
-        </ul>
+        {renderCommands(aboutMeCommands)}
       </div>
 
       <div>
         <p className="font-bold text-accent">System</p>
-        <ul className="list-disc list-inside ml-4">
-          <li><span className="font-bold w-20 inline-block">neofetch</span>: Show system information.</li>
-          <li><span className="font-bold w-20 inline-block">system</span>: Show system monitor.</li>
-          <li>
-            <span className="font-bold w-20 inline-block">theme</span>: Change the theme.
-            <br />
-            <span className="ml-2">Usage: theme [theme]</span>
-            <br />
-            <span className="ml-2">Available themes: {Object.keys(themes).join(', ')}.</span>
-          </li>
-          <li>
-            <span className="font-bold w-20 inline-block">weather</span>: Show the weather for a given location.
-            <br />
-            <span className="ml-2">Usage: weather [location]</span>
-          </li>
-        </ul>
+        {renderCommands(systemCommands)}
       </div>
     </div>
   );
