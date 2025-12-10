@@ -20,6 +20,7 @@ const Banner: React.FC = () => {
 export const banner: ICommand = {
   name: 'banner',
   description: 'Displays the banner.',
+  category: 'General',
   execute: () => <Banner />,
 };
 

@@ -33,6 +33,7 @@ export type CommandFunction = (
 export interface ICommand {
   name: string;
   description: string;
+  category?: string; // Added category property
   execute: CommandFunction;
 }
 
