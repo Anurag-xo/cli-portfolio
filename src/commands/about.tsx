@@ -11,5 +11,6 @@ const About: React.FC = () => {
 export const about: ICommand = {
   name: 'about',
   description: 'Displays information about me.',
+  category: 'About Me',
   execute: () => <About />,
 };
