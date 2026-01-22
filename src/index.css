@@ -1,5 +1,6 @@
 /* src/index.css */
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,44 +16,57 @@
   --shadow: rgba(0, 0, 0, 0.5);
 }
 
-body {
-  background-color: var(--background);
-  color: var(--text);
-}
-
-.bg-background {
-  background-color: var(--background);
-}
-
-.text-text {
-  color: var(--text);
-}
-
-.text-primary {
-  color: var(--primary);
-}
-
-.text-secondary {
-  color: var(--secondary);
-}
-
-.text-accent {
-  color: var(--accent);
-}
-
-.bg-header {
-    background-color: var(--header);
-}
-
+/* === Base Reset & Font === */
 body {
   margin: 0;
-  font-family: "Fira Code", "Courier New", monospace;
-  background: #000;
-  color: #00ff41;
+  font-family: "Fira Code", ui-monospace, "Courier New", monospace;
+  background-color: var(--background);
+  color: var(--text);
   overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Remove all animations */
+/* === Terminal Input Visibility Fix === */
+input[type="text"] {
+  color: var(--text) !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  caret-color: var(--primary);
+  font-family: inherit;
+  font-size: 0.875rem;
+  min-width: 2px;
+}
+
+/* === Scrollbar Styling === */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc33;
+}
+
+/* === Blinking Cursor (Optional Visual Aid) === */
+.blinking-cursor {
+  animation: blink 1s step-end infinite;
+  color: var(--primary);
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* === Disable Unwanted Effects Globally === */
 .glow,
 .crt-effect,
 .animate-pulse {
@@ -60,26 +74,21 @@ body {
   animation: none !important;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
+/* === Optional: Improve Link Readability in Outputs === */
+a {
+  color: var(--primary);
+  text-decoration: underline;
+  transition: opacity 0.2s;
 }
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-::-webkit-scrollbar-thumb {
-  background: #00ff41;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #00cc33;
+a:hover {
+  opacity: 0.8;
 }
 
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-.blinking-cursor {
-  animation: blink 1s step-end infinite;
+/* === Ensure Preformatted Text Matches Theme === */
+pre {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  color: var(--text);
 }
