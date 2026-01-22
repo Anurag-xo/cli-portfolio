@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { GitHubStats } from '../components/GitHubStats';
-import { ICommand } from '../types';
+import React, { useState, useEffect } from "react";
+import { GitHubStats } from "../components/GitHubStats";
+import { ICommand } from "../types";
+import { CommandOutput } from "../components/CommandOutput";
 
 interface GitHubStatsData {
   followers: number;
@@ -15,21 +16,25 @@ const GitHub: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const githubUsername = import.meta.env.VITE_GITHUB_USERNAME || 'Anurag-xo'; // Default to Anurag-xo if not set
+    const githubUsername = import.meta.env.VITE_GITHUB_USERNAME || "Anurag-xo"; // Default to Anurag-xo if not set
 
     const fetchStats = async () => {
       try {
-        const response = await fetch(`https://api.github.com/users/${githubUsername}`);
-        
+        const response = await fetch(
+          `https://api.github.com/users/${githubUsername}`,
+        );
+
         if (response.status === 404) {
           setError(`GitHub user '${githubUsername}' not found.`);
           return;
         }
 
         if (response.status === 403) {
-          const rateLimitRemaining = response.headers.get('X-RateLimit-Remaining');
-          if (rateLimitRemaining === '0') {
-            setError('GitHub API rate limit exceeded. Please try again later.');
+          const rateLimitRemaining = response.headers.get(
+            "X-RateLimit-Remaining",
+          );
+          if (rateLimitRemaining === "0") {
+            setError("GitHub API rate limit exceeded. Please try again later.");
             return;
           }
         }
@@ -42,8 +47,8 @@ const GitHub: React.FC = () => {
         const data = await response.json();
         setStats(data);
       } catch (err) {
-        setError('Network error or unable to fetch GitHub stats.');
-        console.error('Error fetching GitHub stats:', err);
+        setError("Network error or unable to fetch GitHub stats.");
+        console.error("Error fetching GitHub stats:", err);
       } finally {
         setLoading(false);
       }
@@ -68,7 +73,7 @@ const GitHub: React.FC = () => {
 };
 
 export const github: ICommand = {
-  name: 'github',
-  description: 'Displays my GitHub stats.',
+  name: "github",
+  description: "Displays my GitHub stats.",
   execute: () => <GitHub />,
 };

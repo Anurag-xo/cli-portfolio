@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { ProjectViewer } from '../components/ProjectViewer';
-import { ICommand } from '../types';
+import React, { useState, useEffect } from "react";
+import { ProjectViewer } from "../components/ProjectViewer";
+import { ICommand } from "../types";
+import { CommandOutput } from "../components/CommandOutput";
 
 interface Project {
   name: string;
@@ -18,11 +19,13 @@ const Projects: React.FC = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch('https://api.github.com/users/Anurag-xo/repos');
+        const response = await fetch(
+          "https://api.github.com/users/Anurag-xo/repos",
+        );
         const data = await response.json();
         setProjects(data);
       } catch (error) {
-        console.error('Error fetching projects:', error);
+        console.error("Error fetching projects:", error);
       } finally {
         setLoading(false);
       }
@@ -36,15 +39,18 @@ const Projects: React.FC = () => {
   }
 
   return (
-    <div>
-      <p className="mb-4">Here are some of my projects from GitHub. You can click on them to view the source code.</p>
+    <CommandOutput>
+      <p className="mb-4">
+        Here are some of my projects from GitHub. You can click on them to view
+        the source code.
+      </p>
       <ProjectViewer projects={projects} />
-    </div>
+    </CommandOutput>
   );
 };
 
 export const projects: ICommand = {
-  name: 'projects',
-  description: 'Displays my projects.',
+  name: "projects",
+  description: "Displays my projects.",
   execute: () => <Projects />,
 };
