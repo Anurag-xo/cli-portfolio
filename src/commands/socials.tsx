@@ -17,7 +17,7 @@ const Socials: React.FC = () => {
         </li>
         <li>
           <a
-            href="https://www.linkedin.com/in/anurag-s-9b09b81b3/"
+            href="https://www.linkedin.com/in/anurag-kumar-b1a790249/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -26,7 +26,7 @@ const Socials: React.FC = () => {
         </li>
         <li>
           <a
-            href="https://twitter.com/Anurag_xo"
+            href="https://twitter.com/anuragxo1221"
             target="_blank"
             rel="noopener noreferrer"
           >
