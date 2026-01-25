@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
     <CommandOutput>
       <p>You can reach me at:</p>
       <ul className="list-disc list-inside">
-        <li>Email: anurag.s.xo@gmail.com</li>
+        <li>Email: anuragxo.dev@gmail.com</li>
         <li>
           GitHub:{" "}
           <a
