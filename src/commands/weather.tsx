@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ICommand } from '../types';
+import React, { useState, useEffect } from "react";
+import { ICommand } from "../types";
 
 interface WeatherData {
   main: {
@@ -26,20 +26,22 @@ const Weather: React.FC<{ args: string[] }> = ({ args }) => {
     const apiKey = import.meta.env.VITE_OPENWEATHERMAP_API_KEY;
     const fetchWeather = async () => {
       if (args.length === 0) {
-        setError('Please specify a location. Usage: weather [location]');
+        setError("Please specify a location. Usage: weather [location]");
         setLoading(false);
         return;
       }
 
       if (!apiKey) {
-        setError('OpenWeatherMap API key not found. Please add it to your .env file.');
+        setError(
+          "OpenWeatherMap API key not found. Please add it to your .env file.",
+        );
         setLoading(false);
         return;
       }
 
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${args.join(' ')}&appid=${apiKey}&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?q=${args.join(" ")}&appid=${apiKey}&units=metric`,
         );
         const data = await response.json();
         if (response.ok) {
@@ -48,7 +50,7 @@ const Weather: React.FC<{ args: string[] }> = ({ args }) => {
           setError(data.message);
         }
       } catch (error) {
-        setError('Error fetching weather data.');
+        setError("Error fetching weather data.");
       } finally {
         setLoading(false);
       }
@@ -56,7 +58,6 @@ const Weather: React.FC<{ args: string[] }> = ({ args }) => {
 
     fetchWeather();
   }, [args]);
-
 
   if (loading) {
     return <div>Loading weather...</div>;
@@ -78,16 +79,19 @@ const Weather: React.FC<{ args: string[] }> = ({ args }) => {
           <span className="font-bold">Temperature:</span> {weather.main.temp}°C
         </p>
         <p>
-          <span className="font-bold">Feels like:</span> {weather.main.feels_like}°C
+          <span className="font-bold">Feels like:</span>{" "}
+          {weather.main.feels_like}°C
         </p>
         <p>
           <span className="font-bold">Humidity:</span> {weather.main.humidity}%
         </p>
         <p>
-          <span className="font-bold">Wind speed:</span> {weather.wind.speed} m/s
+          <span className="font-bold">Wind speed:</span> {weather.wind.speed}{" "}
+          m/s
         </p>
         <p>
-          <span className="font-bold">Description:</span> {weather.weather[0].description}
+          <span className="font-bold">Description:</span>{" "}
+          {weather.weather[0].description}
         </p>
       </div>
     </div>
@@ -95,7 +99,7 @@ const Weather: React.FC<{ args: string[] }> = ({ args }) => {
 };
 
 export const weather: ICommand = {
-  name: 'weather',
-  description: 'Displays the weather for a given location.',
+  name: "weather",
+  description: "Displays the weather for a given location.",
   execute: (args) => <Weather args={args} />,
 };
