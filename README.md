@@ -144,7 +144,7 @@ VITE_OPENWEATHERMAP_API_KEY=your_api_key_here
 
 | Terminal Interface                                                                 | Neofetch Command                                                                 | Theme Switcher                                                                  |
 | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| ![Terminal UI] <img width="1851" height="931" alt="image" src="https://github.com/user-attachments/assets/1b453ff6-b507-446b-a39e-c8ac4ad3977e" /> | ![Neofetch]<img width="971" height="651" alt="image" src="https://github.com/user-attachments/assets/917ff868-b8d2-4c84-afbf-af74e66c48be" /> | ![Themes](<img width="1851" height="930" alt="image" src="https://github.com/user-attachments/assets/e0351b74-b022-4e70-8458-b05ed54c8033" /> |
+| <img width="1851" height="931" alt="image" src="https://github.com/user-attachments/assets/1b453ff6-b507-446b-a39e-c8ac4ad3977e" /> | <img width="971" height="651" alt="image" src="https://github.com/user-attachments/assets/917ff868-b8d2-4c84-afbf-af74e66c48be" /> | (<img width="1851" height="930" alt="image" src="https://github.com/user-attachments/assets/e0351b74-b022-4e70-8458-b05ed54c8033" /> |
 
 
 ## 🧠 Roadmap
