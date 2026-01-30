@@ -1,7 +1,5 @@
 # 🖥️ Terminal Portfolio
 
-![Terminal Portfolio Preview](https://via.placeholder.com/1200x630/1e1e1e/00ff41?text=Terminal+Portfolio+Preview)
-
 > **Your portfolio, reimagined as a command-line interface.** Explore my work, skills, and projects through an interactive terminal experience—no mouse required.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
