@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect } from "react";
+// hello comment
 export const useTypingEffect = (text: string, speed: number = 50) => {
-  const [displayedText, setDisplayedText] = useState('');
+  const [displayedText, setDisplayedText] = useState("");
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
     if (!text) return;
-    
-    setDisplayedText('');
+
+    setDisplayedText("");
     setIsComplete(false);
-    
+
     let index = 0;
     const timer = setInterval(() => {
       if (index < text.length) {
@@ -26,3 +26,4 @@ export const useTypingEffect = (text: string, speed: number = 50) => {
 
   return { displayedText, isComplete };
 };
+
